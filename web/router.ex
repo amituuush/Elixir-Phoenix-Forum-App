@@ -20,6 +20,7 @@ defmodule Discuss.Router do
     get "/", PageController, :index
     # get method accepts 3 parameters (URL, controller name, and method within that controller to be called)
     get "/topics/new", TopicController, :new
+    post "/topics", TopicController, :create
   end
 
   # Other scopes may use custom stacks.

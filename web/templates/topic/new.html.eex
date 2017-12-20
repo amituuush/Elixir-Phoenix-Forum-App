@@ -1,2 +1,25 @@
-<%# name of this file must match the "new" method in TopicController %>
-<h1>New Test Form</h1>
+<%=
+# name of this file must match the "new" method in TopicController
+
+# line below says, 'create a form using this changeset (@changeset)'. Whenever someone submit the form, send it the the 'create' route that is related to Topics ('topic_path')
+# the line below will eventually be compiled to an html <form></form> tag, and we can place whatever elements we want within the anonymous function
+# so the properties that we pass to it dictate where the form is submitted to
+# the variables prefixed with '@' mean that the template expects 'changeset' and 'conn' variables to be passed in whenever we render this form (see TopicController)
+%>
+<%= form_for @changeset, topic_path(@conn, :create), fn f -> %>
+  <div class="form-group">
+
+<%= # make a text input, that takes in our form (represented as 'f',), this input will be responsible for generating the :title property
+# placeholder and class are simply evaluated as html attributes %>
+    <%= text_input f, :title, placeholder: "Title", class: "form-control" %>
+  </div>
+
+<%= # creates a submit button that says "Save Topic" with the class btn.... %>
+  <%= submit "Save Topic", class: "btn btn-primary" %>
+
+<%= # the 'end' below marks the end of the anonymous function, so we can add html within the body of this function
+# this allows us to render multiple cases of the same template using some elixir logic (sign in and sign out buttons based on whether user was authenticated) %>
+<% end %>
+
+
+<%= # form_for (@changeset, topic_path(@conn, :create), fn f -> end) %>
