@@ -4,7 +4,7 @@ defmodule Discuss.Topic do
   # automatically creates a struct with the name Topic for us behind the scenes
   use Discuss.Web, :model
 
-    # lets phoenix  know that the Topic model I'm creating maps up to my Topic table in postgres, that Topic has a title that is a string
+    # lets phoenix know that the Topic model I'm creating maps up to my Topic table in postgres, that Topic has a title that is a string
     #  lets phoenix know about what's going on inside db because it sees it like a black box
     schema "topics" do
       field :title, :string

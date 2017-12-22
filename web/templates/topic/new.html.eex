@@ -1,8 +1,12 @@
 <%=
 # name of this file must match the "new" method in TopicController
 
-# line below says, 'create a form using this changeset (@changeset)'. Whenever someone submit the form, send it the the 'create' route that is related to Topics ('topic_path')
+# line below says, 'create a form using this changeset (@changeset)'. Whenever someone submits the form, send it the the 'create' route that is related to Topics ('topic_path')
+# the 'topic_path' helper function finds the correct URL to submit the form by matching its second parameter (:create) with the corresponding path in router.ex
+# 'topic_path' is a helper function that replaces passing in the URL and HTTP method so if you ever want to change them you only have to go to router.ex
+
 # the line below will eventually be compiled to an html <form></form> tag, and we can place whatever elements we want within the anonymous function
+# by using this phx form helper, phx automatically adds in a bunch of attributes to the form that we otherwise would have to do manually (csrf, name, etc.)
 # so the properties that we pass to it dictate where the form is submitted to
 # the variables prefixed with '@' mean that the template expects 'changeset' and 'conn' variables to be passed in whenever we render this form (see TopicController)
 %>
